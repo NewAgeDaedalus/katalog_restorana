@@ -51,7 +51,6 @@ Baza podataka se sastoji od 6 tablica:
 * Restoran
 
 ### Restoran
-|-----|-----|------------------|-------------------|------------------|----------------------|--------------|--------------|
 | oib | ime | datum\_otvaranja | datum\_zatvaranja | google\_recenzija | michelin\_zvjezdica | lokacija\_id | vlasnik\_oib |
 |-----|------|-----------------|-------------------|--------------------|---------------------|-------------|--------------|
 | CHAR(10) | VARCHAR | DATE | DATE | INTEGER | INTEGER | CHAR(10) | CHAR(10) |
@@ -64,7 +63,6 @@ Baza podataka se sastoji od 6 tablica:
 * vlaksnik\_oib - vanjski ključ za tablicu Osoba, definira vlasnika restorana
 
 ### Osoba
-|-----|-----|---------|
 | oib | ime | prezime |
 |-----|-----|---------|
 | CHAR(10) | VARCHAR | VARCHAR |
@@ -74,7 +72,6 @@ Baza podataka se sastoji od 6 tablica:
 * prezime - prezime osobe
 
 ### lokacija
-|-----|-----|---------|-------|-----------------|
 | id | adresa | grad | drzava | postanski\_broj |
 |-----|-----|---------|-------|-----------------|
 | CHAR(10) | VARCHAR | VARCHAR | VARCHAR | VARCHAR |
@@ -86,9 +83,8 @@ Baza podataka se sastoji od 6 tablica:
 * postanski\_broj
 
 ### Radni\_odnos
-|-----|-----|----------|------|-----|----|------|-----|-------|------|
 | id | oib\_radnika | oib\_poslodavca | uloga | plaća | valuta | početak\_radnog\_odnosa | kraj\_radnog\_odnosa |
-|-----|-----|----------|------|-----|----|------|-----|-------|------|
+|-----|-----|----------|------|-----|----|------|-----|
 | CHAR(10) | CHAR(10) | VARCHAR | VARCHAR | FLOAT | VARCHAR | DATE | DATE | 
  
  * id - jedinstveni identifikator radnog odnosa
@@ -101,9 +97,8 @@ Baza podataka se sastoji od 6 tablica:
  * kraj\_radnog\_odnosa - datum u formatu YYYY-MM-DD, kad je radni odnos raskinut. Ako je vrijednost NULL, radni odnos je još na snazi
 
  ### Jelo
-|-----|-----|----------|------|-----|-------|-------|-------|------|
 | id | oib\_restorana | naziv | namirnice | kosher | halal | vegan |
-|-----|-----|----------|------|-----|-------|-------|-------|------|
+|-----|-----|----------|------|-----|-------|-------|
 | CHAR(10) | CHAR(10) | VARCHAR | VARCHAR | BOOLEAN | BOOLEAN | BOOLEAN |
 
  * id - jedinstveni identifikator pojedinog jela
@@ -113,6 +108,7 @@ Baza podataka se sastoji od 6 tablica:
 
  ### Inspekcija 
  | datum | oib\_inspektora | oib\_restorana | ocjena |
+|-----|-----|----------|------|
  | DATE  | CHAR(10) |  CHAR(10) | INTEGER |
 
  * datum - datum formata YYYY-MM-DD kad je inspkcija izvršena
