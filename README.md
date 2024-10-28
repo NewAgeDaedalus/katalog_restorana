@@ -16,19 +16,19 @@ Podaci se preuzimaju s kloniranjem ovog repozitorija.
 
 ### Stvaranje baze podataka
 Logirajte se kao korisnik postgres.
-''' bash
+``` bash
     su postgres
-'''
+```
 Zatim stvorite bazu podataka s naredbom.
-''' bash
+``` bash
     psql -c "CREATE DATABASE katalog\_restorana OWNER [username];"
-'''
+```
 Nakon toga se od logirajte s postgres korisnika i stvorite tablice i napunite ih.
-''' bash
+``` bash
     exit
     bash -d katalog\_restorana -f create\_relations.sql
     bash -d katalog\_restorana -f fill\_tables.sql
-'''
+```
 
 ### Izvoz podataka
 
@@ -51,7 +51,9 @@ Baza podataka se sastoji od 6 tablica:
 * Restoran
 
 ### Restoran
+|-----|-----|------------------|-------------------|------------------|----------------------|--------------|--------------|
 | oib | ime | datum\_otvaranja | datum\_zatvaranja | google\_recenzija | michelin\_zvjezdica | lokacija\_id | vlasnik\_oib |
+|-----|------|-----------------|-------------------|--------------------|---------------------|-------------|--------------|
 | CHAR(10) | VARCHAR | DATE | DATE | INTEGER | INTEGER | CHAR(10) | CHAR(10) |
 
 * oib - jedinstveni identifikator restorana
@@ -62,7 +64,9 @@ Baza podataka se sastoji od 6 tablica:
 * vlaksnik\_oib - vanjski ključ za tablicu Osoba, definira vlasnika restorana
 
 ### Osoba
+|-----|-----|---------|
 | oib | ime | prezime |
+|-----|-----|---------|
 | CHAR(10) | VARCHAR | VARCHAR |
 
 * oib - jedinstveni identifikator osobe
@@ -70,7 +74,9 @@ Baza podataka se sastoji od 6 tablica:
 * prezime - prezime osobe
 
 ### lokacija
+|-----|-----|---------|-------|-----------------|
 | id | adresa | grad | drzava | postanski\_broj |
+|-----|-----|---------|-------|-----------------|
 | CHAR(10) | VARCHAR | VARCHAR | VARCHAR | VARCHAR |
 
 * id - jedinstveni identifikator lokacije
@@ -80,7 +86,9 @@ Baza podataka se sastoji od 6 tablica:
 * postanski\_broj
 
 ### Radni\_odnos
+|-----|-----|----------|------|-----|----|------|-----|-------|------|
 | id | oib\_radnika | oib\_poslodavca | uloga | plaća | valuta | početak\_radnog\_odnosa | kraj\_radnog\_odnosa |
+|-----|-----|----------|------|-----|----|------|-----|-------|------|
 | CHAR(10) | CHAR(10) | VARCHAR | VARCHAR | FLOAT | VARCHAR | DATE | DATE | 
  
  * id - jedinstveni identifikator radnog odnosa
@@ -93,8 +101,10 @@ Baza podataka se sastoji od 6 tablica:
  * kraj\_radnog\_odnosa - datum u formatu YYYY-MM-DD, kad je radni odnos raskinut. Ako je vrijednost NULL, radni odnos je još na snazi
 
  ### Jelo
- | id | oib\_restorana | naziv | namirnice | kosher | halal | vegan |
- | CHAR(10) | CHAR(10) | VARCHAR | VARCHAR | BOOLEAN | BOOLEAN | BOOLEAN |
+|-----|-----|----------|------|-----|-------|-------|-------|------|
+| id | oib\_restorana | naziv | namirnice | kosher | halal | vegan |
+|-----|-----|----------|------|-----|-------|-------|-------|------|
+| CHAR(10) | CHAR(10) | VARCHAR | VARCHAR | BOOLEAN | BOOLEAN | BOOLEAN |
 
  * id - jedinstveni identifikator pojedinog jela
  * oib\_restorana - vansjki ključ na tablicu Restoran, identificira restoran koji ima ovo jelo u jelovniku
