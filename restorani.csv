@@ -1,0 +1,81 @@
+oib;ime;datum_otvaranja;datum_zatvaranja;google_recenzija;michelin_zvjezdica;vlasnik_oib;vlasnik_ime;vlasnik_prezime;inspektor_oib;inspektor_ime;oib_radnik;radnik_ime;radnik_prezime;plaća;valuta;početak_radnog_odnosa;kraj_radnog_odnosa;naziv;namirnice;kosher;halal;vegan
+6247233792;Fina klopica;2023-06-08;2023-08-27;1;0;8230983394;Marija;Kovačić;1432803003;Nada;3614488145;Ante;Knežević;1200;eur;2023-11-23;2023-08-27;Kokošja juha;Koka, povrće. voda;t;t;f
+6247233792;Fina klopica;2023-06-08;2023-08-27;1;0;8230983394;Marija;Kovačić;1432803003;Nada;2571449160;Marina;Grgić;1700;eur;2023-10-31;2023-08-27;Kokošja juha;Koka, povrće. voda;t;t;f
+6247233792;Fina klopica;2023-06-08;2023-08-27;1;0;8230983394;Marija;Kovačić;1432803003;Nada;3614488145;Ante;Knežević;1200;eur;2023-11-23;2023-08-27;Odojak;Svinja;f;f;f
+6247233792;Fina klopica;2023-06-08;2023-08-27;1;0;8230983394;Marija;Kovačić;1432803003;Nada;2571449160;Marina;Grgić;1700;eur;2023-10-31;2023-08-27;Odojak;Svinja;f;f;f
+2170837900;Krilca;2002-09-15;;2;1;4437249969;Mirjana;Jurković;1562384501;Ana;8167829152;Mirjana;Brkić;1350;eur;2021-02-13;;Janjetina ispod peke;Janje;t;t;f
+2170837900;Krilca;2002-09-15;;2;1;4437249969;Mirjana;Jurković;1562384501;Ana;3275514645;Ivica;Živković;1250;eur;2020-12-04;;Janjetina ispod peke;Janje;t;t;f
+2170837900;Krilca;2002-09-15;;2;1;4437249969;Mirjana;Jurković;1562384501;Ana;8167829152;Mirjana;Brkić;1350;eur;2021-02-13;;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+2170837900;Krilca;2002-09-15;;2;1;4437249969;Mirjana;Jurković;1562384501;Ana;3275514645;Ivica;Živković;1250;eur;2020-12-04;;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+3284636627;Mata Dadi;2007-04-16;2012-08-23;1;0;3614488145;Ante;Knežević;1432803003;Nada;7212526406;Ivana;Mandić;1150;eur;2009-01-24;2012-08-23;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+3284636627;Mata Dadi;2007-04-16;2012-08-23;1;0;3614488145;Ante;Knežević;1432803003;Nada;7439598023;Nada;Marković;1250;eur;2007-05-16;2012-08-23;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+3284636627;Mata Dadi;2007-04-16;2012-08-23;1;0;3614488145;Ante;Knežević;1432803003;Nada;7212526406;Ivana;Mandić;1150;eur;2009-01-24;2012-08-23;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+3284636627;Mata Dadi;2007-04-16;2012-08-23;1;0;3614488145;Ante;Knežević;1432803003;Nada;7439598023;Nada;Marković;1250;eur;2007-05-16;2012-08-23;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+9264285032;Borić;2018-07-30;;1;2;9775380993;Martina;Lončar;1562384501;Ana;7052920004;Katarina;Lončar;1700;eur;2018-10-22;;Odojak;Svinja;f;f;f
+9264285032;Borić;2018-07-30;;1;2;9775380993;Martina;Lončar;1562384501;Ana;3723081368;Josip;Marković;1300;eur;2023-07-16;;Odojak;Svinja;f;f;f
+9264285032;Borić;2018-07-30;;1;2;9775380993;Martina;Lončar;1562384501;Ana;7052920004;Katarina;Lončar;1700;eur;2018-10-22;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+9264285032;Borić;2018-07-30;;1;2;9775380993;Martina;Lončar;1562384501;Ana;3723081368;Josip;Marković;1300;eur;2023-07-16;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+1905967508;Bor;2020-02-24;;1;0;1661433065;Ana;Lovrić;1432803003;Nada;6279857869;Marina;Brkić;1750;eur;2021-07-12;;Odojak;Svinja;f;f;f
+1905967508;Bor;2020-02-24;;1;0;1661433065;Ana;Lovrić;1432803003;Nada;5081270756;Ivana;Jukić;1700;eur;2021-09-26;;Odojak;Svinja;f;f;f
+1905967508;Bor;2020-02-24;;1;0;1661433065;Ana;Lovrić;1432803003;Nada;6279857869;Marina;Brkić;1750;eur;2021-07-12;;Čvaraci;Salo od svinje;f;f;f
+1905967508;Bor;2020-02-24;;1;0;1661433065;Ana;Lovrić;1432803003;Nada;5081270756;Ivana;Jukić;1700;eur;2021-09-26;;Čvaraci;Salo od svinje;f;f;f
+8419013551;Mata Hari;2020-11-22;2023-06-21;3;0;8230983394;Marija;Kovačić;1562384501;Ana;4562681820;Nada;Jurić;1100;eur;2023-03-07;2023-06-19;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+8419013551;Mata Hari;2020-11-22;2023-06-21;3;0;8230983394;Marija;Kovačić;1562384501;Ana;4194806551;Marko;Vidović;1150;eur;2021-02-06;2023-06-19;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+8419013551;Mata Hari;2020-11-22;2023-06-21;3;0;8230983394;Marija;Kovačić;1562384501;Ana;4562681820;Nada;Jurić;1100;eur;2023-03-07;2023-06-19;Čvaraci;Salo od svinje;f;f;f
+8419013551;Mata Hari;2020-11-22;2023-06-21;3;0;8230983394;Marija;Kovačić;1562384501;Ana;4194806551;Marko;Vidović;1150;eur;2021-02-06;2023-06-19;Čvaraci;Salo od svinje;f;f;f
+1163668298;Krilca;2019-12-26;;2;0;9161176335;Ana;Živković;1432803003;Nada;5789461166;Martina;Barišić;1750;eur;2019-12-26;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+1163668298;Krilca;2019-12-26;;2;0;9161176335;Ana;Živković;1432803003;Nada;9646034679;Luka;Lovrić;1350;eur;2022-10-05;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+1163668298;Krilca;2019-12-26;;2;0;9161176335;Ana;Živković;1432803003;Nada;5789461166;Martina;Barišić;1750;eur;2019-12-26;;Odojak;Svinja;f;f;f
+1163668298;Krilca;2019-12-26;;2;0;9161176335;Ana;Živković;1432803003;Nada;9646034679;Luka;Lovrić;1350;eur;2022-10-05;;Odojak;Svinja;f;f;f
+2765417043;Johan Frank;2015-02-07;;3;0;2819660347;Ana;Filipović;1432803003;Nada;3960947653;Marija;Petrović;1500;eur;2016-03-06;;Čvaraci;Salo od svinje;f;f;f
+2765417043;Johan Frank;2015-02-07;;3;0;2819660347;Ana;Filipović;1432803003;Nada;8351795016;Luka;Živković;1750;eur;2020-07-18;;Čvaraci;Salo od svinje;f;f;f
+2765417043;Johan Frank;2015-02-07;;3;0;2819660347;Ana;Filipović;1432803003;Nada;3960947653;Marija;Petrović;1500;eur;2016-03-06;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+2765417043;Johan Frank;2015-02-07;;3;0;2819660347;Ana;Filipović;1432803003;Nada;8351795016;Luka;Živković;1750;eur;2020-07-18;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8247266554;Ribički klub čaplja;2010-09-19;2020-03-19;3;0;7638011061;Marija;Mandić;1432803003;Nada;4437249969;Mirjana;Jurković;1900;eur;2016-08-08;2020-03-19;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8247266554;Ribički klub čaplja;2010-09-19;2020-03-19;3;0;7638011061;Marija;Mandić;1432803003;Nada;6279857869;Marina;Brkić;1800;eur;2019-01-30;2020-03-19;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8247266554;Ribički klub čaplja;2010-09-19;2020-03-19;3;0;7638011061;Marija;Mandić;1432803003;Nada;4437249969;Mirjana;Jurković;1900;eur;2016-08-08;2020-03-19;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8247266554;Ribički klub čaplja;2010-09-19;2020-03-19;3;0;7638011061;Marija;Mandić;1432803003;Nada;6279857869;Marina;Brkić;1800;eur;2019-01-30;2020-03-19;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8514599263;Kod Jože;2019-12-17;;1;0;7638011061;Marija;Mandić;1562384501;Ana;1661433065;Ana;Lovrić;1200;eur;2022-12-01;;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+8514599263;Kod Jože;2019-12-17;;1;0;7638011061;Marija;Mandić;1562384501;Ana;4562681820;Nada;Jurić;1850;eur;2021-11-17;;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+8514599263;Kod Jože;2019-12-17;;1;0;7638011061;Marija;Mandić;1562384501;Ana;1661433065;Ana;Lovrić;1200;eur;2022-12-01;;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+8514599263;Kod Jože;2019-12-17;;1;0;7638011061;Marija;Mandić;1562384501;Ana;4562681820;Nada;Jurić;1850;eur;2021-11-17;;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+6247233792;Fina klopica;2023-06-08;2023-08-27;1;0;8230983394;Marija;Kovačić;1432803003;Nada;3614488145;Ante;Knežević;1200;eur;2023-11-23;2023-08-27;Kokošja juha;Koka, povrće. voda;t;t;f
+6247233792;Fina klopica;2023-06-08;2023-08-27;1;0;8230983394;Marija;Kovačić;1432803003;Nada;2571449160;Marina;Grgić;1700;eur;2023-10-31;2023-08-27;Kokošja juha;Koka, povrće. voda;t;t;f
+6247233792;Fina klopica;2023-06-08;2023-08-27;1;0;8230983394;Marija;Kovačić;1432803003;Nada;3614488145;Ante;Knežević;1200;eur;2023-11-23;2023-08-27;Odojak;Svinja;f;f;f
+6247233792;Fina klopica;2023-06-08;2023-08-27;1;0;8230983394;Marija;Kovačić;1432803003;Nada;2571449160;Marina;Grgić;1700;eur;2023-10-31;2023-08-27;Odojak;Svinja;f;f;f
+2170837900;Krilca;2002-09-15;;2;1;4437249969;Mirjana;Jurković;1562384501;Ana;8167829152;Mirjana;Brkić;1350;eur;2021-02-13;;Janjetina ispod peke;Janje;t;t;f
+2170837900;Krilca;2002-09-15;;2;1;4437249969;Mirjana;Jurković;1562384501;Ana;3275514645;Ivica;Živković;1250;eur;2020-12-04;;Janjetina ispod peke;Janje;t;t;f
+2170837900;Krilca;2002-09-15;;2;1;4437249969;Mirjana;Jurković;1562384501;Ana;8167829152;Mirjana;Brkić;1350;eur;2021-02-13;;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+2170837900;Krilca;2002-09-15;;2;1;4437249969;Mirjana;Jurković;1562384501;Ana;3275514645;Ivica;Živković;1250;eur;2020-12-04;;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+3284636627;Mata Dadi;2007-04-16;2012-08-23;1;0;3614488145;Ante;Knežević;1562384501;Ana;7212526406;Ivana;Mandić;1150;eur;2009-01-24;2012-08-23;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+3284636627;Mata Dadi;2007-04-16;2012-08-23;1;0;3614488145;Ante;Knežević;1562384501;Ana;7439598023;Nada;Marković;1250;eur;2007-05-16;2012-08-23;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+3284636627;Mata Dadi;2007-04-16;2012-08-23;1;0;3614488145;Ante;Knežević;1562384501;Ana;7212526406;Ivana;Mandić;1150;eur;2009-01-24;2012-08-23;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+3284636627;Mata Dadi;2007-04-16;2012-08-23;1;0;3614488145;Ante;Knežević;1562384501;Ana;7439598023;Nada;Marković;1250;eur;2007-05-16;2012-08-23;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+9264285032;Borić;2018-07-30;;1;2;9775380993;Martina;Lončar;1432803003;Nada;7052920004;Katarina;Lončar;1700;eur;2018-10-22;;Odojak;Svinja;f;f;f
+9264285032;Borić;2018-07-30;;1;2;9775380993;Martina;Lončar;1432803003;Nada;3723081368;Josip;Marković;1300;eur;2023-07-16;;Odojak;Svinja;f;f;f
+9264285032;Borić;2018-07-30;;1;2;9775380993;Martina;Lončar;1432803003;Nada;7052920004;Katarina;Lončar;1700;eur;2018-10-22;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+9264285032;Borić;2018-07-30;;1;2;9775380993;Martina;Lončar;1432803003;Nada;3723081368;Josip;Marković;1300;eur;2023-07-16;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+1905967508;Bor;2020-02-24;;1;0;1661433065;Ana;Lovrić;1562384501;Ana;6279857869;Marina;Brkić;1750;eur;2021-07-12;;Odojak;Svinja;f;f;f
+1905967508;Bor;2020-02-24;;1;0;1661433065;Ana;Lovrić;1562384501;Ana;5081270756;Ivana;Jukić;1700;eur;2021-09-26;;Odojak;Svinja;f;f;f
+1905967508;Bor;2020-02-24;;1;0;1661433065;Ana;Lovrić;1562384501;Ana;6279857869;Marina;Brkić;1750;eur;2021-07-12;;Čvaraci;Salo od svinje;f;f;f
+1905967508;Bor;2020-02-24;;1;0;1661433065;Ana;Lovrić;1562384501;Ana;5081270756;Ivana;Jukić;1700;eur;2021-09-26;;Čvaraci;Salo od svinje;f;f;f
+8419013551;Mata Hari;2020-11-22;2023-06-21;3;0;8230983394;Marija;Kovačić;1562384501;Ana;4562681820;Nada;Jurić;1100;eur;2023-03-07;2023-06-19;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+8419013551;Mata Hari;2020-11-22;2023-06-21;3;0;8230983394;Marija;Kovačić;1562384501;Ana;4194806551;Marko;Vidović;1150;eur;2021-02-06;2023-06-19;Rižoto s plodovima mora;Riža, lignje, maslinovo ulje;t;t;f
+8419013551;Mata Hari;2020-11-22;2023-06-21;3;0;8230983394;Marija;Kovačić;1562384501;Ana;4562681820;Nada;Jurić;1100;eur;2023-03-07;2023-06-19;Čvaraci;Salo od svinje;f;f;f
+8419013551;Mata Hari;2020-11-22;2023-06-21;3;0;8230983394;Marija;Kovačić;1562384501;Ana;4194806551;Marko;Vidović;1150;eur;2021-02-06;2023-06-19;Čvaraci;Salo od svinje;f;f;f
+1163668298;Krilca;2019-12-26;;2;0;9161176335;Ana;Živković;1432803003;Nada;5789461166;Martina;Barišić;1750;eur;2019-12-26;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+1163668298;Krilca;2019-12-26;;2;0;9161176335;Ana;Živković;1432803003;Nada;9646034679;Luka;Lovrić;1350;eur;2022-10-05;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+1163668298;Krilca;2019-12-26;;2;0;9161176335;Ana;Živković;1432803003;Nada;5789461166;Martina;Barišić;1750;eur;2019-12-26;;Odojak;Svinja;f;f;f
+1163668298;Krilca;2019-12-26;;2;0;9161176335;Ana;Živković;1432803003;Nada;9646034679;Luka;Lovrić;1350;eur;2022-10-05;;Odojak;Svinja;f;f;f
+2765417043;Johan Frank;2015-02-07;;3;0;2819660347;Ana;Filipović;1562384501;Ana;3960947653;Marija;Petrović;1500;eur;2016-03-06;;Čvaraci;Salo od svinje;f;f;f
+2765417043;Johan Frank;2015-02-07;;3;0;2819660347;Ana;Filipović;1562384501;Ana;8351795016;Luka;Živković;1750;eur;2020-07-18;;Čvaraci;Salo od svinje;f;f;f
+2765417043;Johan Frank;2015-02-07;;3;0;2819660347;Ana;Filipović;1562384501;Ana;3960947653;Marija;Petrović;1500;eur;2016-03-06;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+2765417043;Johan Frank;2015-02-07;;3;0;2819660347;Ana;Filipović;1562384501;Ana;8351795016;Luka;Živković;1750;eur;2020-07-18;;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8247266554;Ribički klub čaplja;2010-09-19;2020-03-19;3;0;7638011061;Marija;Mandić;1562384501;Ana;4437249969;Mirjana;Jurković;1900;eur;2016-08-08;2020-03-19;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8247266554;Ribički klub čaplja;2010-09-19;2020-03-19;3;0;7638011061;Marija;Mandić;1562384501;Ana;6279857869;Marina;Brkić;1800;eur;2019-01-30;2020-03-19;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8247266554;Ribički klub čaplja;2010-09-19;2020-03-19;3;0;7638011061;Marija;Mandić;1562384501;Ana;4437249969;Mirjana;Jurković;1900;eur;2016-08-08;2020-03-19;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8247266554;Ribički klub čaplja;2010-09-19;2020-03-19;3;0;7638011061;Marija;Mandić;1562384501;Ana;6279857869;Marina;Brkić;1800;eur;2019-01-30;2020-03-19;Lazanje;Sir, mljeveno meso, tjesto;f;f;f
+8514599263;Kod Jože;2019-12-17;;1;0;7638011061;Marija;Mandić;1432803003;Nada;1661433065;Ana;Lovrić;1200;eur;2022-12-01;;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+8514599263;Kod Jože;2019-12-17;;1;0;7638011061;Marija;Mandić;1432803003;Nada;4562681820;Nada;Jurić;1850;eur;2021-11-17;;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+8514599263;Kod Jože;2019-12-17;;1;0;7638011061;Marija;Mandić;1432803003;Nada;1661433065;Ana;Lovrić;1200;eur;2022-12-01;;Rižoto od cikle;Riži, cikla, maslac;t;t;f
+8514599263;Kod Jože;2019-12-17;;1;0;7638011061;Marija;Mandić;1432803003;Nada;4562681820;Nada;Jurić;1850;eur;2021-11-17;;Rižoto od cikle;Riži, cikla, maslac;t;t;f
