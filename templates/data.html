@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/main.js"></script>
+    <title>Full-Page Table</title>
+     <style>
+        /* Basic styling for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .subtable {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .subtable th, .subtable td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        .expanded-row {
+            background-color: #f9f9f9;
+        }
+
+         /* Style the select element */
+        .menu-select {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            appearance: none;
+        }
+
+        /* Styling the container for custom dropdown appearance */
+        .menu-container {
+            position: relative;
+            width: 200px;
+        }
+
+        /* Add a dropdown arrow icon */
+        .menu-container::after {
+            content: "▼";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            pointer-events: none;
+        }
+
+        /* Optional: Styling to change color on focus */
+        .menu-select:focus {
+            outline: none;
+            border-color: #555;
+        }
+    </style>
+</head>
+<body onload="main();">
+    <div class="menu-container">
+        <input id="filter" type="text" placeholder="Filtriraj" onkeypress="query(event);">
+        <select class="menu-select" name="select atribut" id="drop-bar">
+            <option value="fuzzy">Wildcard</option>
+            <option value="oib">Oib restorana</option>
+            <option value="ime">Ime restorana</option>
+            <option value="datum_otvaranja">Datum otvaranja</option>
+            <option value="datum_zatvaranja">Datum zatvaranja</option>
+            <option value="google_recenzija">Google recenzija</option>
+            <option value="michelin_zvjezdica">Michelin zvijezdica</option>
+            <option value="lokacija.adresa">Adresa</option>
+            <option value="lokacija.grad">Grad</option>
+            <option value="lokacija.drzava">Država</option>
+            <option value="lokacija.postanski_broj">Poštanski broj</option>
+            <option value="vlasnik.oib">Oib vlasnika</option>
+            <option value="vlasnik.ime">Ime vlasnika</option>
+            <option value="vlasnik.prezime">Prezime vlasnika</option>
+            <option value="jelovnik.naziv">Naziv jela</option>
+            <option value="jelovnik.namirnice">Namirnice</option>
+            <option value="inspekcije.inspektor.oib">Inspektor oib</option>
+            <option value="inspekcije.datum">Inspekcija datum</option>
+        </select>  	
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Oib restorana</th>
+                <th>Ime restorana</th>
+                <th>Datum otvaranja</th>
+                <th>Datum zatvaranja</th>
+                <th>Google recenzija</th>
+                <th>Michelin zvijezdica</th>
+                <th>Adresa</th>
+                <th>Grad</th>
+                <th>Država</th>
+                <th>Poštanski broj</th>
+                <th>Oib vlasnika</th>
+                <th>Ime vlasnika</th>
+                <th>Prezime vlasnika</th>
+            </tr>
+        </thead>
+        <tbody id='data-body'>
+        </tbody>
+    </table>
+    <a id="export-json" onClick="export_json();" >Izvezi u json</a>
+	<br>
+    <a id="export-csv" onClick="export_csv();">Izvezi u csv</a>
+</body>
+</html>

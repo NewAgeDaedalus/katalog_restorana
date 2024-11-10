@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Fabian Penezić" />
+    <title>Katalog Restorana</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1, h2, h3, h4 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; overflow: auto; }
+        code { font-family: monospace; color: #d14; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Katalog restorana</h1>
+
+    <h2>Licencija</h2>
+    <p><strong>Katalog restorana</strong> by Fabian Penezić is marked with CC0 1.0.</p>
+    <p>Ovo je repozitorij za laboratorijske vježbe iz predmeta Otvorenog računarstva. Sadrži skup otvorenih
+    kataloških podataka restorana u Republici Hrvatskoj.</p>
+    
+    <h2>Opis podataka</h2>
+    <p>Baza podataka se sastoji od 6 tablica:</p>
+    <ul>
+        <li>Inspekcija</li>
+        <li>Jelo</li>
+        <li>Lokacija</li>
+        <li>Osoba</li>
+        <li>Radni_odnos</li>
+        <li>Restoran</li>
+    </ul>
+
+    <h3>Restoran</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>oib</th>
+                <th>ime</th>
+                <th>datum_otvaranja</th>
+                <th>datum_zatvaranja</th>
+                <th>google_recenzija</th>
+                <th>michelin_zvjezdica</th>
+                <th>lokacija_id</th>
+                <th>vlasnik_oib</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CHAR(10)</td>
+                <td>VARCHAR</td>
+                <td>DATE</td>
+                <td>DATE</td>
+                <td>INTEGER</td>
+                <td>INTEGER</td>
+                <td>CHAR(10)</td>
+                <td>CHAR(10)</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li>oib - jedinstveni identifikator restorana</li>
+        <li>ime - ime restorana</li>
+        <li>datum_otvaranja - datum otvaranja restorana za javnost, format YYYY-MM-DD</li>
+        <li>datum_zatvaranja - datum zatvaranja restorana; ako je NULL, restoran još nije zatvoren</li>
+        <li>lokacija_id - vanjski ključ za tablicu Lokacija, definira lokaciju restorana</li>
+        <li>vlasnik_oib - vanjski ključ za tablicu Osoba, definira vlasnika restorana</li>
+    </ul>
+
+    <h3>Osoba</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>oib</th>
+                <th>ime</th>
+                <th>prezime</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CHAR(10)</td>
+                <td>VARCHAR</td>
+                <td>VARCHAR</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li>oib - jedinstveni identifikator osobe</li>
+        <li>ime - ime osobe</li>
+        <li>prezime - prezime osobe</li>
+    </ul>
+
+    <h3>Lokacija</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>adresa</th>
+                <th>grad</th>
+                <th>drzava</th>
+                <th>postanski_broj</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CHAR(10)</td>
+                <td>VARCHAR</td>
+                <td>VARCHAR</td>
+                <td>VARCHAR</td>
+                <td>VARCHAR</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li>id - jedinstveni identifikator lokacije</li>
+        <li>adresa - adresa lokacije</li>
+        <li>grad - grad u kojoj se lokacija nalazi</li>
+        <li>drzava - država u kojoj se lokacija nalazi</li>
+        <li>postanski_broj - poštanski broj lokacije</li>
+    </ul>
+
+    <h3>Radni_odnos</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>oib_radnika</th>
+                <th>oib_poslodavca</th>
+                <th>uloga</th>
+                <th>plaća</th>
+                <th>valuta</th>
+                <th>početak_radnog_odnosa</th>
+                <th>kraj_radnog_odnosa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CHAR(10)</td>
+                <td>CHAR(10)</td>
+                <td>VARCHAR</td>
+                <td>VARCHAR</td>
+                <td>FLOAT</td>
+                <td>VARCHAR</td>
+                <td>DATE</td>
+                <td>DATE</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li>id - jedinstveni identifikator radnog odnosa</li>
+        <li>oib_radnika - vanjski ključ na tablicu Osoba, označava radnika</li>
+        <li>oib_poslodavca - vanjski ključ na tablicu Restoran, označava restoran</li>
+        <li>uloga - uloga radnika</li>
+        <li>plaća - mjesečna plaća</li>
+        <li>valuta - valuta plaće</li>
+        <li>početak_radnog_odnosa - datum početka</li>
+        <li>kraj_radnog_odnosa - datum završetka; NULL ako još traje</li>
+    </ul>
+
+    <h3>Jelo</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>oib_restorana</th>
+                <th>naziv</th>
+                <th>namirnice</th>
+                <th>kosher</th>
+                <th>halal</th>
+                <th>vegan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CHAR(10)</td>
+                <td>CHAR(10)</td>
+                <td>VARCHAR</td>
+                <td>VARCHAR</td>
+                <td>BOOLEAN</td>
+                <td>BOOLEAN</td>
+                <td>BOOLEAN</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li>id - jedinstveni identifikator jela</li>
+        <li>oib_restorana - vanjski ključ na tablicu Restoran</li>
+        <li>naziv - ime jela</li>
+        <li>namirnice - sastojci</li>
+    </ul>
+
+    <h3>Inspekcija</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>datum</th>
+                <th>oib_inspektora</th>
+                <th>oib_restorana</th>
+                <th>ocjena</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>DATE</td>
+                <td>CHAR(10)</td>
+                <td>CHAR(10)</td>
+                <td>INTEGER</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li>datum - datum inspekcije</li>
+        <li>oib_inspektora - vanjski ključ na tablicu Osoba</li>
+        <li>oib_restorana - vanjski ključ na tablicu Restoran</li>
+        <li>ocjena - ocjena inspekcije od 1 do 5</li>
+    </ul>
+</body>
+</html>

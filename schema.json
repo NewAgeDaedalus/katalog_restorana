@@ -1,0 +1,305 @@
+
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "title": "Restorani",
+  "$id": "https://github.com/NewAgeDaedalus/katalog_restorana/restorani.json",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "oib": {
+          "type": "string"
+        },
+        "ime": {
+          "type": "string"
+        },
+        "datum_otvaranja": {
+          "type": "string"
+        },
+        "datum_zatvaranja": {
+          "type": "string"
+        },
+        "google_recenzija": {
+          "type": "integer"
+        },
+        "michelin_zvjezdica": {
+          "type": "integer"
+        },
+        "lokacija": {
+          "type": "object",
+          "properties": {
+            "adresa": {
+              "type": "string"
+            },
+            "grad": {
+              "type": "string"
+            },
+            "drzava": {
+              "type": "string"
+            },
+            "postanski_broj": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "adresa",
+            "grad",
+            "drzava",
+            "postanski_broj"
+          ]
+        },
+        "vlasnik": {
+          "type": "object",
+          "properties": {
+            "oib": {
+              "type": "string"
+            },
+            "ime": {
+              "type": "string"
+            },
+            "prezime": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "oib",
+            "ime",
+            "prezime"
+          ]
+        },
+        "jelovnik": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "naziv": {
+                  "type": "string"
+                },
+                "namirnice": {
+                  "type": "string"
+                },
+                "kosher": {
+                  "type": "boolean"
+                },
+                "halal": {
+                  "type": "boolean"
+                },
+                "vegan": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "naziv",
+                "namirnice",
+                "kosher",
+                "halal",
+                "vegan"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "naziv": {
+                  "type": "string"
+                },
+                "namirnice": {
+                  "type": "string"
+                },
+                "kosher": {
+                  "type": "boolean"
+                },
+                "halal": {
+                  "type": "boolean"
+                },
+                "vegan": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "naziv",
+                "namirnice",
+                "kosher",
+                "halal",
+                "vegan"
+              ]
+            }
+          ]
+        },
+        "radnici": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "oib": {
+                  "type": "string"
+                },
+                "ime": {
+                  "type": "string"
+                },
+                "prezime": {
+                  "type": "string"
+                },
+                "uloga": {
+                  "type": "string"
+                },
+                "plaća": {
+                  "type": "number"
+                },
+                "valuta": {
+                  "type": "string"
+                },
+                "početak_radnog_odnosa": {
+                  "type": "string"
+                },
+                "kraj_radnog_odnosa": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "oib",
+                "ime",
+                "prezime",
+                "uloga",
+                "plaća",
+                "valuta",
+                "početak_radnog_odnosa",
+                "kraj_radnog_odnosa"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "oib": {
+                  "type": "string"
+                },
+                "ime": {
+                  "type": "string"
+                },
+                "prezime": {
+                  "type": "string"
+                },
+                "uloga": {
+                  "type": "string"
+                },
+                "plaća": {
+                  "type": "number"
+                },
+                "valuta": {
+                  "type": "string"
+                },
+                "početak_radnog_odnosa": {
+                  "type": "string"
+                },
+                "kraj_radnog_odnosa": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "oib",
+                "ime",
+                "prezime",
+                "uloga",
+                "plaća",
+                "valuta",
+                "početak_radnog_odnosa",
+                "kraj_radnog_odnosa"
+              ]
+            }
+          ]
+        },
+        "inspekcije": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "datum": {
+                  "type": "string"
+                },
+                "inspektor": {
+                  "type": "object",
+                  "properties": {
+                    "oib": {
+                      "type": "string"
+                    },
+                    "ime": {
+                      "type": "string"
+                    },
+                    "prezime": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "oib",
+                    "ime",
+                    "prezime"
+                  ]
+                },
+                "ocjena": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "datum",
+                "inspektor",
+                "ocjena"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "datum": {
+                  "type": "string"
+                },
+                "inspektor": {
+                  "type": "object",
+                  "properties": {
+                    "oib": {
+                      "type": "string"
+                    },
+                    "ime": {
+                      "type": "string"
+                    },
+                    "prezime": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "oib",
+                    "ime",
+                    "prezime"
+                  ]
+                },
+                "ocjena": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "datum",
+                "inspektor",
+                "ocjena"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "oib",
+        "ime",
+        "datum_otvaranja",
+        "datum_zatvaranja",
+        "google_recenzija",
+        "michelin_zvjezdica",
+        "lokacija",
+        "vlasnik",
+        "jelovnik",
+        "radnici",
+        "inspekcije"
+      ]
+    }
+  ]
+}
+
