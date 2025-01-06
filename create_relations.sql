@@ -1,12 +1,12 @@
 CREATE TABLE Osoba(
-    oib CHAR(10),
+    oib VARCHAR,
     ime VARCHAR,
     prezime VARCHAR,
     PRIMARY KEY(oib)
 );
 
 CREATE TABLE Lokacija(
-    id CHAR(10),
+    id VARCHAR,
     adresa VARCHAR,
     grad VARCHAR,
     drzava VARCHAR,
@@ -15,7 +15,7 @@ CREATE TABLE Lokacija(
 );
 
 CREATE TABLE Restoran(
-    oib CHAR(10),
+    oib VARCHAR,
     ime VARCHAR,
     datum_otvaranja DATE,
     datum_zatvaranja DATE,
@@ -43,17 +43,18 @@ CREATE TABLE Radni_odnos(
 );
 
 CREATE TABLE Inspekcija(
+    id VARCHAR,
+    oib_restorana VARCHAR,
     datum DATE,
-    oib_inspektora CHAR(10),
-    oib_restorana CHAR(10),
+    oib_inspektora VARCHAR,
     ocjena INTEGER,
-    PRIMARY KEY(datum, oib_restorana),
+    PRIMARY KEY(id),
     FOREIGN KEY(oib_inspektora) REFERENCES Osoba(oib)
 );
 
 CREATE TABLE Jelo(
-    id CHAR(10),
-    oib_restorana CHAR(10),
+    id VARCHAR,
+    oib_restorana VARCHAR,
     naziv VARCHAR,
     namirnice VARCHAR,
     kosher BOOLEAN,
