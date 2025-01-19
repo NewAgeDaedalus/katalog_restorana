@@ -4,6 +4,9 @@ import json
 from datetime import datetime, timedelta
 from random import randrange
 
+class ChangeException(Exception):
+    pass
+
 class Restoran_fetcher:
     def __init__(self):
         self.conn = psycopg.connect(f"dbname=katalog_restorana")
@@ -252,7 +255,8 @@ class Restoran_manager:
             self.cur.execute("INSERT INTO OSOBA VALUES (%s, %s, %s)", osoba)
         #Create location
         location = self.create_lokacija_row(rest["lokacija"])
-        self.cur.execute("INSERT INTO Lokacija VALUES (%s, %s, %s, %s)", location)
+        print(location)
+        self.cur.execute("INSERT INTO Lokacija VALUES (%s, %s, %s, %s, %s)", location)
         #Create Restoran
         restoran = self.create_restoran_row(rest, location[0], owner[0])
         self.cur.execute("INSERT INTO restoran VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", restoran)
@@ -267,6 +271,7 @@ class Restoran_manager:
                 for inspekcija, inspektor in zip(rest["inspekcije"], inspektori)
         ]
         for inspekcija in inspekcije:
+            print(inspekcija)
             self.cur.execute("INSERT INTO inspekcija VALUES (%s, %s, %s, %s, %s)", inspekcija)
         #Create radni odnosi
         radni_odnosi = [ 
@@ -288,9 +293,13 @@ class Restoran_manager:
             i+=1
         return failed
 
-    def change_vlasnik(self, novi_vlasnik, restoran_oib, stari_vlasnik_oib):
+    def change_vlasnik(self, novi_vlasnik, restoran_oib):
+        self.cur.execute(f"SELECT vlasnik_oib from restoran where oib='{restoran_oib}'")
+        stari_vlasnik_oib = self.cur.fetchone()[0]
         #Ako nema oib stvori novog
         if not "oib" in novi_vlasnik.keys():
+            if "ime" not in novi_vlasnik.keys() and "prezime" not in novi_vlasnik.keys():
+                raise  ChangeException("Novi vlasnik ne sadrži ime ili prezime")
             novi_vlasnik_oib = "".join([str(randrange(0,10)) for i in range(10)])
             self.curs.execute(
                     "INSERT INTO osobe VALUES (%s, %s, %s)", 
@@ -300,36 +309,114 @@ class Restoran_manager:
                         novi_vlasnik["prezime"]
                     ]
             )
-            self.curs.execute(f"UPDATE restorani SET vlasnik_oib = '{novi_vlasnik_oib}' WHERE oib = {restoran_oib}")
+            self.curs.execute(f"UPDATE restorani SET vlasnik_oib = '{novi_vlasnik_oib}' WHERE oib = '{restoran_oib}'")
         #Ako ima je oib jednak starom, promijeni ime i prezime starog vlasnika
         elif novi_vlasnik["oib"] == stari_vlasnik_oib:
             if "ime" in novi_vlasnik.keys():
-                self.curs.execute(f"UPDATE osoba SET ime = '{novi_vlasnik["ime"]}' WHERE oib = {stari_vlasnik_oib}")
+                self.curs.execute(f"UPDATE osoba SET ime = '{novi_vlasnik["ime"]}' WHERE oib = '{stari_vlasnik_oib}'")
             if "prezime" in novi_vlasnik.keys():
-                self.curs.execute(f"UPDATE osoba SET prezime = '{novi_vlasnik["prezime"]}' WHERE oib = {stari_vlasnik_oib}")
+                self.curs.execute(f"UPDATE osoba SET prezime = '{novi_vlasnik["prezime"]}' WHERE oib = '{stari_vlasnik_oib}'")
         else:
-            self.curs.execute(f"UPDATE restorani SET vlasnik_oib = '{novi_vlasnik["oib"]}' WHERE oib = {restoran_oib}")
+            print(f"Mijenjam vlasnika na {novi_vlasnik['oib']}")
+            self.cur.execute(f"SELECT * from osoba where oib='{novi_vlasnik['oib']}'")
+            if self.cur.fetchone() == None:
+                raise ChangeException(f"Ne postoji osoba s oibom '{novi_vlasnik['oib']}'")
+            self.cur.execute(f"UPDATE restoran SET vlasnik_oib='{novi_vlasnik["oib"]}' WHERE oib='{restoran_oib}'")
             
 
-    def change_inspekcije(self, inspekcije:list):
+    def change_inspekcije(self, inspekcije:list, oib_restorana:str):
         for inspekcija in inspekcije:
-            try:
-                inspekcija_id = list(self.curs.execute(f"SELECT id from inspekcija where id='{inspekcija['id']}'"))[0][0]
+            if "id" in inspekcija.keys():
+                self.cur.execute(f"SELECT id from inspekcija where id='{inspekcija['id']}'")
+                inspekcija_id = self.cur.fetchone()
+                if inspekcija_id == None:
+                    raise ChangeException(f"Ne postoji inspekcija s ID-om {inspekcija['id']}")
+                inspekcija_id = inspekcija_id[0]
                 for key in set(inspekcija.keys()).intersection(["datum", "ocjena"]):
-                    self.curs.execute(f"UPDATE inspekcija SET {key} = '{inspekcija['key']}' WHERE cd = {inspekcija_id}")
-            except IndexError:
-                pass
+                    self.cur.execute(f"UPDATE inspekcija SET {key} = '{inspekcija[key]}' WHERE id = '{inspekcija_id}'")
+            else: #stvori novu inspekciju
+                if "inspektor" not in inspekcija.keys():
+                    raise ChangeException("Nova inspekcija ne sadrži inpektora")
+                inspektor = inspekcija["inspektor"]
+                id_nove_inspekcije = "".join([str(randrange(0,10)) for i in range(10)])
+                if "oib" not in inspektor.keys():
+                    #stvori novog inspektora
+                    if "ime" not in inspektor.keys() or "prezime" not in inspektor.keys():
+                        raise ChangeException("Novi inspektor mora imati ime i prezime")
+                    oib_novog_inspektora = "".join([str(randrange(0,10)) for i in range(10)])
 
-    def change_radni_odnosi(self, radni_odnosi:list):
+                    print([oib_novog_inspektora, inspektor["ime"], inspektor["prezime"]])
+                    self.cur.execute(
+                            "INSERT INTO osoba VALUES (%s, %s, %s)", 
+                            [oib_novog_inspektora, inspektor["ime"], inspektor["prezime"]]
+                    )
+                    if "datum" not in inspekcija.keys() and "ocjena" not in inspekcija.keys():
+                        raise ChangeException("Nova inspekcija mora sadržavati datum i ocjenu")
+                    self.cur.execute(
+                            "INSERT INTO inspekcija VALUES (%s, %s, %s, %s, %s)",
+                            [id_nove_inspekcije, oib_restorana, inspekcija["datum"], oib_novog_inspektora, inspekcija["ocjena"]]
+                    )
+                else:
+                    self.cur.execute(f"SELECT oib from osoba where oib='{inspektor['oib']}'")
+                    if self.cur.fetchone() == None:
+                        raise ChangeException(f"Ne postoji inspektor s oibom {inspektor['oib']}")
+                    if "datum" not in inspekcija.keys() and "ocjena" not in inspekcija.keys():
+                        raise ChangeException("Nova inspekcija mora sadržavati datum i ocjenu")
+                    self.cur.execute(
+                            "INSERT INTO inspekcija VALUES (%s %s %s %s %s)",
+                            [
+                                id_nove_inspekcije, 
+                                oib_restorana,
+                                inspekcija["datum"],
+                                inspektor["oib"],
+                                inspekcija["ocjena"]
+                            ]
+                    )
+
+
+    def change_radni_odnosi(self, radni_odnosi:list, oib_poslodavca):
         for radni_odnos in radni_odnosi:
-            try:
-                radni_odnos_id = list(self.curs.execute("SELECT id from radni_odnos where id='{radni_odnos['id']}'"))[0][0]
+            if "id" in radni_odnos.keys():
+                self.curs.execute("SELECT id from radni_odnos where id='{radni_odnos['id']}'")
+                radni_odnos_id = self.cur.fetchone()
+                if radni_odnos_id == None:
+                    raise ChangeException(f"Ne postoji inspekcija s ID-om {inspekcija['id']}")
+                radni_odnos_id = radni_odnos_id[0]
                 for key in set(inspekcija.keys()).intersection(
                         ["uloga", "plaća", "valuta", "početak_radnog_odnosa", "kraj_radnog_odnosa"]
                         ):
                     self.curs.execute(f"UPDATE radni_odnos SET {key} = '{radni_odnos['key']}' WHERE cd = {radni_odnos_id}")
-            except IndexError:
-                pass
+            else: #stvori novi radni odnos
+                #Provijeri je li ima sve potrebne elemente
+                if len(set(radni_odnos.keys()).intersection(
+                        set(["uloga", "plaća", "valuta", "početak_radnog_odnosa"]))) != 5 :
+                    raise ChangeException("Za Dodavanje novog radnog odnosa elementi radnici moraju imati polja (oib_poslodavca, uloga, plaća, valuta, početak_radnog_odnosa)")
+                id_novog_radnog_odnosa = "".join([str(randrange(0,10)) for i in range(10)])
+                #Provijeri je li postoji
+                if "oib_radnika" in radni_odnos.keys():
+                    # Provijeri je li postoji oib te osobe
+                    self.cur.execute(f"SELECT oib from osoba where oib='{radni_odnos['oib_radnika']}'")
+                    if self.cur.fetchone() == None:
+                        raise ChangeException(f"Ne postoji osoba s oibom '{radni_odnos['oib_radnika']}'")
+                    self.cur.execute("INSERT INTO radni_odnos VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+                                     id_novog_radnog_odnosa, radni_odnos['oib_radnika'], oib_poslodavca,
+                                     radni_odnos['uloga'], radni_odnos['plaća'], radni_odnos['valuta'],
+                                     radni_odnos['početak_radnog_odnosa'], radni_odnos['kraj_radnog_odnosa'])
+                else:
+                    # Stvori novu osobu radnika
+                    if "ime" not in radni_odnos.keys() or "prezime" not in radni_odnos.keys():
+                        raise ChangeException("Novi radni odnos ne sadrži ime i prezime novog radnika")
+                    novi_radnik_oib = "".join([str(randrange(0,10)) for i in range(10)])
+                    self.cur.execute("INSERT INTO osoba VALUES (%s %s %s)", 
+                                     novi_radnik_oib, radni_odnos['ime'], radni_odnos['prezime']
+                    )
+                    #Stvori novi radni_odnos
+                    self.cur.execute("INSERT INTO radni_odnos VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+                                     id_novog_radnog_odnosa, novi_radnik_oib, oib_poslodavca,
+                                     radni_odnos['uloga'], radni_odnos['plaća'], radni_odnos['valuta'],
+                                     radni_odnos['početak_radnog_odnosa'], radni_odnos['kraj_radnog_odnosa']
+                    )
+
 
     def change_lokacija(self, lokacija:dict, restoran_oib:str):
         try:
@@ -344,19 +431,17 @@ class Restoran_manager:
                         lokacija["postanski_broj"]
                     ]
             )
+            self.cur.execute(f"UPDATE restoran SET lokacija_id='{novi_id}' where oib='{restoran_oib}'")
         except KeyError:
-            pass
-
+            raise ChangeException("Atribut lokacija ne sadrži sve potrebne ključeve (adresa, grad, drzava, postanki_broj)")
 
     def update_restoran(self, restoran:dict):
-        try:
-            original_restoran_id = list(self.cur.execute(f"SELECT oib FROM restoran where oib='{restoran['oib']}'"))[0][0]
-            print(original_restoran_id)
-        except IndexError:
-            print("\nAAA\n")
-            return
+        self.cur.execute(f"SELECT oib FROM restoran where oib='{restoran['oib']}'")
+        original_restoran_id = self.cur.fetchone()
+        if original_restoran_id == None:
+            raise ChangeException(f"Ne postoji restoran s OIB-om '{restoran['oib']}'")
+        original_restoran_id = original_restoran_id[0]
         for key in restoran.keys():
-            print(key)
             if key == "oib":
                 continue
             elif key == "vlasnik":
@@ -364,18 +449,34 @@ class Restoran_manager:
             elif key == "radici":
                 self.change_radni_odnosi(restoran["radnici"])
             elif key == "lokacija":
-                pass
+                self.change_lokacija(restoran["lokacija"], original_restoran_id)
+            elif key == "inspekcije":
+                self.change_inspekcije(restoran["inspekcije"], original_restoran_id)
             elif key in set(["ime", "datum_otvaranja", "datum_zatvaranja", "google_recenzija", "michelin_zvjezdica"]):
-                print("\n\nAAAAAAAA\n\n")
-                self.cur.execute(f"UPDATE restoran SET {key} = '{restoran[key]}' WHERE oib = '{original_restoran_id}'")
+                self.cur.execute(f"UPDATE restoran SET {key}='{restoran[key]}' WHERE oib='{original_restoran_id}'")
             else:
-                pass
-        self.conn.commit()
-
+                raise ChangeException(f"Objekt sadrži element '{key}' koji nije dopušten.")
 
     def update_restorani(self, restorani:list):
+        restoran_indx = 0
         for restoran in restorani:
-            self.update_restoran(restoran)
+            try:
+                self.update_restoran(restoran)
+            except ChangeException as e:
+                return restoran_indx, str(e)
+            restoran_indx += 1
+        self.conn.commit()
+        return None, None
+
+    def delete_restoran(self, restoran_oib):
+        self.cur.execute(f"SELECT oib FROM restoran where oib='{restoran_oib}'")
+        original_restoran_id = self.cur.fetchone()[0]
+        if original_restoran_id == None:
+            raise ChangeException(f"Restoran koji pokušavate izbrisati ne postoji")
+        self.cur.execute(f"DELETE FROM restoran WHERE oib='{restoran_oib}'")
+        self.conn.commit()
+        
+        
 
 if __name__ == "__main__":
     fetcher = Restoran_fetcher()

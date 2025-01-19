@@ -39,7 +39,7 @@ CREATE TABLE Radni_odnos(
     kraj_radnog_odnosa DATE,
     PRIMARY KEY(id),
     FOREIGN KEY(oib_radnika) REFERENCES Osoba(oib),
-    FOREIGN KEY(oib_poslodavca) REFERENCES Restoran(oib)
+    FOREIGN KEY(oib_poslodavca) REFERENCES Restoran(oib) ON DELETE CASCADE
 );
 
 CREATE TABLE Inspekcija(
@@ -61,6 +61,6 @@ CREATE TABLE Jelo(
     halal BOOLEAN,
     vegan BOOLEAN,
     PRIMARY KEY(id),
-    FOREIGN KEY(oib_restorana) REFERENCES Restoran(oib)
+    FOREIGN KEY(oib_restorana) REFERENCES Restoran(oib) ON DELETE CASCADE
 );
 
